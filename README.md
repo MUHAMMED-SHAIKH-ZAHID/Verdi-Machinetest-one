@@ -27,7 +27,8 @@ A simple React-based dashboard to manage delivery orders with live map tracking 
    cd delivery-dashboard
 
   2 .installation dependencies
-  npm install
+  npm install<img width="1440" height="900" alt="Screenshot 2025-07-23 at 7 11 03 PM" src="https://github.com/user-attachments/assets/fb2afe8f-8ed3-4728-906d-dc644bdd3e73" />
+
 
   3.Start the app
   npm run dev
@@ -48,4 +49,4 @@ Cards styled with dark theme and hover effect
 
 Clean, user-friendly interface
 here is a demo image of the work
-<img width="1440" height="900" alt="Screenshot 2025-07-23 at 5 37 49 PM" src="https://github.com/user-attachments/assets/fdf1dd02-1980-48cc-95be-87b49259f267" />
+f
