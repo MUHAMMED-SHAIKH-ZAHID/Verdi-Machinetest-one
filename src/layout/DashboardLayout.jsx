@@ -11,9 +11,10 @@ import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
 const greenCarIcon = new L.Icon({
+    
   iconUrl: 'https://cdn-icons-png.flaticon.com/512/8308/8308414.png', 
   iconRetinaUrl: 'https://cdn-icons-png.flaticon.com/512/8308/8308414.png',
-  iconSize: [32, 32],
+    iconSize: [32, 32],
   iconAnchor: [16, 16], 
   popupAnchor: [0, -16],
   shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
@@ -48,7 +49,7 @@ export default function DashboardLayout() {
 
   const getRandomLatLng = () => {
     if (!mapBounds) {
-      return [37.7749, -122.4194]; 
+      return [37.7749, -100.4194]; 
     }
     const sw = mapBounds.getSouthWest();
     const ne = mapBounds.getNorthEast();
@@ -72,7 +73,7 @@ export default function DashboardLayout() {
         <main className="p-4 flex-1 overflow-auto bg-gray-100 rounded-lg">
           <Outlet />
           <div className="flex gap-4 h-[600px]">
-            <div className="bg-black rounded-xl flex-shrink-0" style={{ width: '60%', minWidth: 500, height: '100%' }}>
+            <div className="bg-black rounded-xl flex-shrink-0" style={{ width: '60%', minWidth: 600, height: '100%' }}>
               <MapContainer
                 center={[37.7749, -122.4194]}
                 zoom={12}
@@ -111,7 +112,7 @@ export default function DashboardLayout() {
               className="bg-black rounded-xl p-4 flex-1 overflow-y-auto"
               style={{ maxHeight: '100%' }}
             >
-              <h2 className="text-green-300 font-bold mb-4 text-xl">Orders List</h2>
+              <h2 className="text-lime-300 font-bold mb-4 text-xl">Orders List</h2>
               <div className="grid grid-cols-2 gap-4 overflow-y-auto scrollbar-thin scrollbar-thumb-green-300 scrollbar-track-black">
            {orders.length === 0 ? (
   <p className="text-gray-400 col-span-2 text-center italic">No orders to display</p>
@@ -119,8 +120,8 @@ export default function DashboardLayout() {
   orders.map((order) => (
     <div
       key={order.id}
-      className={`bg-[#1f2937] text-white rounded-xl p-4 shadow-md hover:shadow-lg transition-all duration-300 border border-gray-700 cursor-pointer
-        ${order.id === selectedOrderId ? 'ring-4 ring-green-300' : ''}
+      className={`bg-[#182332] text-white rounded-2xl p-3 m-1 shadow-md hover:shadow-lg transition-all duration-300 border border-gray-700 cursor-pointer
+        ${order.id === selectedOrderId ? 'ring-1 ring-green-300' : ''}
       `}
       onClick={() => setSelectedOrderId(order.id)}
     >
@@ -133,20 +134,24 @@ export default function DashboardLayout() {
 
       <div className="space-y-1 text-sm">
         <div className="flex justify-between">
-          <span className="text-gray-300 font-medium">Name</span>
-          <span>{order.customerName}</span>
+          <span className="text-gray-500 font-medium">Customer:</span>
+          <span>{order?.customerName}</span>
         </div>
         <div className="flex justify-between">
-          <span className="text-gray-300 font-medium">Area</span>
-          <span>{order.area}</span>
+          <span className="text-gray-500 font-medium">Area:</span>
+          <span>{order?.area}</span>
         </div>
         <div className="flex justify-between">
-          <span className="text-gray-300 font-medium">Driver</span>
-          <span>{order.driver}</span>
+          <span className="text-gray-500 font-medium">Driver:</span>
+          <span>{order?.driver}</span>
         </div>
         <div className="flex justify-between">
-          <span className="text-gray-300 font-medium">ETA</span>
-          <span className="text-lime-400 font-semibold">{order.status}</span>
+          <span className="text-gray-500 font-medium">Number:</span>
+          <span>{order?.number}</span>
+        </div>
+        <div className="flex justify-between">
+          <span className="text-gray-500 font-medium">ETA:</span>
+          <span className="text-lime-400 font-semibold">{order?.eta}</span>
         </div>
       </div>
     </div>

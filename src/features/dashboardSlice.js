@@ -15,14 +15,18 @@ const dashboardSlice = createSlice({
             state.modalOpen = false;
         },
         addDashboardItem: (state, action) => {
+            const nextId = state.dashboardItems.length + 1;
+            const formattedId = String(nextId).padStart(3, '0');
+
             const newItem = {
-                id: state?.dashboardItems?.length + 1, // or use nanoid()
-                ...action?.payload,
-                status: 'Pending', // default
+                id: formattedId,
+                ...action.payload,
+                status: 'Pending', 
             };
-            state?.dashboardItems.push(newItem);
-            state.modalOpen = false; // ✅ close the modal here directly
-        },
+
+            state.dashboardItems.push(newItem);
+            state.modalOpen = false;
+        }
     },
 });
 

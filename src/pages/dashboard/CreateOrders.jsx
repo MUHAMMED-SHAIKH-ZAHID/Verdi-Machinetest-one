@@ -30,9 +30,9 @@ const CreateOrders = ({onClose}) => {
           <input name="customerName" value={formData.customerName} onChange={handleChange} placeholder="Customer Name" className="w-full border p-2 rounded" required />
           <input name="area" value={formData.area} onChange={handleChange} placeholder="Area" className="w-full border p-2 rounded" required />
           <input name="driver" value={formData.driver} onChange={handleChange} placeholder="Driver" className="w-full border p-2 rounded" required />
-          <input name="phone" value={formData.phone} onChange={handleChange} placeholder="Phone" className="w-full border p-2 rounded" required />
-          <input name="eta" value={formData.eta} onChange={handleChange} placeholder="ETA (in minutes)" className="w-full border p-2 rounded" required />
-          <button type="submit" className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded w-full">Submit</button>
+          <input name="phone" value={formData.phone} type='number' onChange={handleChange} placeholder="Phone" className="w-full border p-2 rounded" required />
+          <input name="eta" value={formData.eta} type='number' onChange={handleChange} placeholder="ETA (in minutes)" className="w-full border p-2 rounded" required />
+          <button type="submit" className="bg-[#d2fb00] hover:bg-[#d9fb00] hover:cursor-pointer text-black text-xl font-medium px-4 py-2 rounded w-full">Submit</button>
         </form>
       </div>
     </div>
